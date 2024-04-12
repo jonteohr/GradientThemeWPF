@@ -1,0 +1,12 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="Label.Window.Title"                           Color="{DynamicResource Color.Toned.White.Medium}" />
+    
+    <SolidColorBrush x:Key="Button.ControlBar.Standard"                   Color="{DynamicResource Color.Toned.White.Medium}"/>
+    <SolidColorBrush x:Key="Button.ControlBar.Hover"                      Color="{DynamicResource Color.Toned.White.Strong}"/>
+    <SolidColorBrush x:Key="Button.ControlBar.Click"                      Color="{DynamicResource Color.Toned.White.Light}"/>
+    
+    <SolidColorBrush x:Key="MenuItem.Foreground"                          Color="{DynamicResource Color.Toned.White.VeryStrong}" />
+    <SolidColorBrush x:Key="MenuItem.Foreground.Hover"                    Color="{DynamicResource Color.Solid.White}" />
+    <SolidColorBrush x:Key="MenuItem.Background.Hover"                    Color="{DynamicResource Color.Toned.White.Light}" />
+</ResourceDictionary>

@@ -1,0 +1,92 @@
+﻿<Window x:Class="WPFGradientApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFGradientApp"
+        xmlns:components="clr-namespace:WPFGradientApp.Components"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        MouseDown="MainWindow_OnMouseDown"
+        Style="{DynamicResource GradientWindow}">
+    
+    <Border Style="{DynamicResource WindowBorder}">
+        <DockPanel>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                
+                <!-- Toolbar grid -->
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="24" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    
+                    <Label Grid.Column="0" Grid.Row="1" Content="MyApp" Style="{DynamicResource WindowTitle}" />
+                    
+                    <Menu Grid.Column="1" Grid.Row="1" Style="{DynamicResource MenuStyle}">
+                        <MenuItem Header="File" Style="{DynamicResource MenuItemStyle}">
+                            <MenuItem Header="test" Style="{DynamicResource MenuItemStyle}"/>
+                        </MenuItem>
+                        <MenuItem  Header="Tools" Style="{DynamicResource MenuItemStyle}"/>
+                        <MenuItem  Header="Another one" Style="{DynamicResource MenuItemStyle}"/>
+                        <MenuItem  Header="Help" Style="{DynamicResource MenuItemStyle}"/>
+                    </Menu>
+                    
+                    <Button Grid.Row="1" Grid.Column="2" Content="_" Click="MinimizeBtn_OnClick" Style="{DynamicResource ControlBarButton}" />
+                    <Button Grid.Row="1" Grid.Column="3" Content="X" Click="CloseBtn_OnClick" Style="{DynamicResource ControlBarButton}" />
+                </Grid>
+                <!-- .Toolbar Grid -->
+                
+                <!-- ContentGrid -->
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="10*" />
+                        <RowDefinition Height="60*" />
+                        <RowDefinition Height="30*" />
+                    </Grid.RowDefinitions>
+                    <!-- Title header -->
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="10*" />
+                            <ColumnDefinition Width="70*" />
+                            <ColumnDefinition Width="20*" />
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        
+                        <Label Grid.Column="1" Content="Nice app" Style="{DynamicResource TitleStyle}" />
+                        <Label Grid.Row="1" Grid.Column="1" Content="A nice subdescription" Style="{DynamicResource SubheaderStyle}" />
+                    </Grid>
+                    
+                </Grid>
+                <!-- .ContentGrid -->
+                
+                <!-- <Grid Grid.Row="1" Column="0"> -->
+                <!--     <Grid.RowDefinitions> -->
+                <!--         <RowDefinition Height="100" /> -->
+                <!--         <RowDefinition Height="100" /> -->
+                <!--         <RowDefinition Height="*" /> -->
+                <!--     </Grid.RowDefinitions> -->
+                <!-- -->
+                <!--     <components:MenuButton Grid.Row="0" IconType="Hamburger" Header="btn 1" Margin="1" /> -->
+                <!--     <components:MenuButton Grid.Row="1" IconType="Bulb" Header="Another btn" Margin="1"/> -->
+                <!-- </Grid> -->
+            
+            </Grid>
+        </DockPanel>
+    </Border>
+</Window>

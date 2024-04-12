@@ -1,0 +1,101 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:models="clr-namespace:WPFGradientApp.Styles.Models">
+    
+    <!-- GradientWindow -->
+    <Style x:Key="GradientWindow" TargetType="{x:Type Window}">
+        <Setter Property="AllowsTransparency" Value="True" />
+        <Setter Property="WindowStyle" Value="None" />
+        <Setter Property="Background" Value="Transparent" />
+    </Style>
+    <!-- .GradientWindow -->
+    
+    <!-- WindowBorder -->
+    <Style x:Key="WindowBorder" TargetType="{x:Type Border}">
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="Background">
+            <Setter.Value>
+                <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
+                    <LinearGradientBrush.GradientStops>
+                        <GradientStop Offset="0" Color="#0D324D" />
+                        <GradientStop Offset="1" Color="#7F5A83" />
+                    </LinearGradientBrush.GradientStops>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- .WindowBorder -->
+    
+    <!-- ControlBarButton -->
+    <Style x:Key="ControlBarButton" TargetType="{x:Type Button}">
+        <!-- <Setter Property="OverridesDefaultStyle" Value="True" /> -->
+        <Setter Property="Width" Value="24" />
+        <Setter Property="Padding" Value="2" />
+        <Setter Property="Margin" Value="0,0,10,0" />
+        <Setter Property="Background" Value="{DynamicResource Button.ControlBar.Standard}" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="BorderThickness" Value="0" />
+    
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border Background="{TemplateBinding Background}" BorderBrush="Black" BorderThickness="0">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    
+        <Style.Triggers>
+            <EventTrigger RoutedEvent="UIElement.MouseEnter">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation To="{StaticResource Color.Toned.White.Strong}"
+                                        Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                        FillBehavior="HoldEnd"
+                                        Duration="{StaticResource AnimationDuration}" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <EventTrigger RoutedEvent="UIElement.MouseLeave">
+                <BeginStoryboard>
+                    <Storyboard>
+                        <ColorAnimation To="{StaticResource Color.Toned.White.Medium}"
+                                        Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)"
+                                        FillBehavior="HoldEnd"
+                                        Duration="{StaticResource AnimationDuration}" />
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+            <Trigger Property="IsPressed" Value="True">
+                <Setter Property="Background" Value="{DynamicResource Button.ControlBar.Click}" />
+            </Trigger>
+        </Style.Triggers>
+        <Style.Resources>
+            <Style TargetType="Border">
+                <Setter Property="CornerRadius" Value="12" />
+            </Style>
+        </Style.Resources>
+    </Style>
+    <!-- .WindowCloseBtn -->
+    
+    <!-- WindowTitle -->
+    <models:CharacterConvert x:Key="CharacterConvert" />
+    <Style x:Key="WindowTitle" TargetType="{x:Type Label}">
+        <Setter Property="Foreground" Value="{DynamicResource Label.Window.Title}" />
+        <Setter Property="FontWeight" Value="Heavy" />
+        <Setter Property="FontSize" Value="10" />
+        <Setter Property="HorizontalAlignment" Value="Center" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Margin" Value="10,0,20,0" />
+        <Setter Property="ContentTemplate">
+            <Setter.Value>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Path=Content, RelativeSource={RelativeSource AncestorType={x:Type Label}}, Converter={StaticResource CharacterConvert}}" />
+                </DataTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <!-- .WindowTitle -->
+    
+</ResourceDictionary>
