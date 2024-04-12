@@ -7,7 +7,7 @@
     </Style>
     <!-- .MenuStyle -->
     
-    <!-- MenuStyleIcon -->
+    <!-- MenuStyleItem -->
     <Style x:Key="MenuItemStyle" TargetType="{x:Type MenuItem}">
         <Setter Property="Foreground" Value="{DynamicResource MenuItem.Foreground}" />
         <Style.Triggers>
@@ -127,7 +127,7 @@
     <Style x:Key="SubheaderStyle" TargetType="{x:Type Label}">
         <Setter Property="Foreground" Value="White" />
         <Setter Property="FontSize" Value="14" />
-        <Setter Property="FontWeight" Value="Light" />
+        <Setter Property="FontWeight" Value="ExtraLight" />
         <Setter Property="VerticalAlignment" Value="Top" />
         <Setter Property="Opacity" Value=".7" />
     </Style>

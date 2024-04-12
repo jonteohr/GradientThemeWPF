@@ -3,10 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WPFGradientApp"
-        xmlns:components="clr-namespace:WPFGradientApp.Components"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MyApp" Height="450" Width="800"
         MouseDown="MainWindow_OnMouseDown"
         Style="{DynamicResource GradientWindow}">
     
@@ -33,7 +31,7 @@
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
                     
-                    <Label Grid.Column="0" Grid.Row="1" Content="MyApp" Style="{DynamicResource WindowTitle}" />
+                    <Label Grid.Column="0" Grid.Row="1" Content="{Binding RelativeSource={RelativeSource AncestorType={x:Type Window}}, Path=Title}" Style="{DynamicResource WindowTitle}" />
                     
                     <Menu Grid.Column="1" Grid.Row="1" Style="{DynamicResource MenuStyle}">
                         <MenuItem Header="File" Style="{DynamicResource MenuItemStyle}">
@@ -68,23 +66,11 @@
                             <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         
-                        <Label Grid.Column="1" Content="Nice app" Style="{DynamicResource TitleStyle}" />
+                        <Label Grid.Column="1" Content="{Binding Path=WindowTitle}" Name="TitleLabel" Style="{DynamicResource TitleStyle}" />
                         <Label Grid.Row="1" Grid.Column="1" Content="A nice subdescription" Style="{DynamicResource SubheaderStyle}" />
                     </Grid>
                     
                 </Grid>
-                <!-- .ContentGrid -->
-                
-                <!-- <Grid Grid.Row="1" Column="0"> -->
-                <!--     <Grid.RowDefinitions> -->
-                <!--         <RowDefinition Height="100" /> -->
-                <!--         <RowDefinition Height="100" /> -->
-                <!--         <RowDefinition Height="*" /> -->
-                <!--     </Grid.RowDefinitions> -->
-                <!-- -->
-                <!--     <components:MenuButton Grid.Row="0" IconType="Hamburger" Header="btn 1" Margin="1" /> -->
-                <!--     <components:MenuButton Grid.Row="1" IconType="Bulb" Header="Another btn" Margin="1"/> -->
-                <!-- </Grid> -->
             
             </Grid>
         </DockPanel>
