@@ -15,3 +15,6 @@ To use the styles in your own project, make sure to import the correct styles in
     </ResourceDictionary>
 </Application.Resources>
 ```
+Later in the window you want to be gradient colored, add the style `GradientWindow` to the window.
+
+Example of styles for each control is available in the source code.
