@@ -82,7 +82,10 @@ public class TyperLabel : Label
     {
         var rand = new Random();
 
-        string generated;
+        var generated = Titles[rand.Next(0, Titles.Length)];
+        if(Titles.Length == 1)
+            return generated;
+        
         do
         {
             generated = Titles[rand.Next(0, Titles.Length)];
