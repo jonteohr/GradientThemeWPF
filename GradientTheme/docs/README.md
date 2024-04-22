@@ -20,9 +20,9 @@ To use the styles in your own project, make sure to import the correct styles in
     <ResourceDictionary>
         <ResourceDictionary.MergedDictionaries>
             <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/Colors.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/Controls.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/Window.xaml" />
-                <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/ControlColors.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/Controls.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/Window.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/ControlColors.xaml" />
         </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 </Application.Resources>
