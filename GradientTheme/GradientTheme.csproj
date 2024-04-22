@@ -13,7 +13,7 @@
         <Authors>Jonteohr</Authors>
         <Copyright>2024 © Jonathan Öhrström</Copyright>
         <PackageProjectUrl>https://github.com/jonteohr/WPFGradientApp</PackageProjectUrl>
-        <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
+        <PackageLicenseUrl>https://licenses.nuget.org/GPL-3.0-only</PackageLicenseUrl>
         <PackageTags>wpf gradient theme library modern ui</PackageTags>
         <RepositoryUrl>https://api.nuget.org/v3/index.json</RepositoryUrl>
         <IsPackable>true</IsPackable>
