@@ -10,7 +10,7 @@ public class TyperLabel : Label
     private const int TypeSpeed = 150;
     private const int TimerSpeed = 3;
     private bool m_typing;
-    private string WindowTitle { get; set; }
+    private string m_windowTitle;
     private string m_lastTitle;
     
     private string[] m_titles;
@@ -20,13 +20,13 @@ public class TyperLabel : Label
         set
         {
             m_titles = value;
-            Content = WindowTitle = GetRandomTitle();
+            Content = m_windowTitle = GetRandomTitle();
         }
     }
     
     public TyperLabel()
     {
-        var binding = new Binding("WindowTitle");
+        var binding = new Binding("m_windowTitle");
         BindingOperations.SetBinding(this, TyperLabel.ContentProperty, binding);
         
         var timer = new Timer();
@@ -43,23 +43,23 @@ public class TyperLabel : Label
         {
             m_typing = true;
 
-            m_lastTitle = WindowTitle;
+            m_lastTitle = m_windowTitle;
             
-            for (var i = WindowTitle.Length - 1; i < WindowTitle.Length; i--)
+            for (var i = m_windowTitle.Length - 1; i < m_windowTitle.Length; i--)
             {
                 if (i < 0)
                     break;
         
-                WindowTitle = WindowTitle.Remove(i);
-                SafeThreadInvoker(() => Content = WindowTitle);
+                m_windowTitle = m_windowTitle.Remove(i);
+                SafeThreadInvoker(() => Content = m_windowTitle);
                 Thread.Sleep(TypeSpeed);
             }
 
-            WindowTitle = GetRandomTitle();
+            m_windowTitle = GetRandomTitle();
 
-            for (var i = 0; i <= WindowTitle.Length; i++)
+            for (var i = 0; i <= m_windowTitle.Length; i++)
             {
-                var tmp = WindowTitle.Substring(0, i);
+                var tmp = m_windowTitle.Substring(0, i);
                 SafeThreadInvoker(() => Content = tmp);
                 Thread.Sleep(TypeSpeed);
             }
