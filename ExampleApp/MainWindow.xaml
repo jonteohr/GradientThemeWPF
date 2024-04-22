@@ -3,6 +3,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:GradientTheme.Controls;assembly=GradientTheme"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
         Title="MyApp" Height="450" Width="800"
         MouseDown="MainWindow_OnMouseDown"
@@ -47,31 +49,31 @@
                 </Grid>
                 <!-- .Toolbar Grid -->
                 
-                <!-- ContentGrid -->
+                <!-- Title header -->
                 <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="10*" />
+                        <ColumnDefinition Width="70*" />
+                        <ColumnDefinition Width="20*" />
+                    </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
-                        <RowDefinition Height="10*" />
-                        <RowDefinition Height="60*" />
-                        <RowDefinition Height="30*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
-                    <!-- Title header -->
-                    <Grid Grid.Row="1">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="10*" />
-                            <ColumnDefinition Width="70*" />
-                            <ColumnDefinition Width="20*" />
-                        </Grid.ColumnDefinitions>
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="*" />
-                            <RowDefinition Height="*" />
-                        </Grid.RowDefinitions>
-                        
-                        <Label Grid.Column="1" Content="{Binding Path=WindowTitle}" Name="TitleLabel" Style="{DynamicResource TitleStyle}" />
-                        <Label Grid.Row="1" Grid.Column="1" Content="A nice subdescription" Style="{DynamicResource SubheaderStyle}" />
-                    </Grid>
                     
+                    <controls:TyperLabel Grid.Row="0" Grid.Column="1" Style="{DynamicResource TitleStyle}" >
+                        <!-- Important that we supply at least one title, if not we will crash! -->
+                        <controls:TyperLabel.Titles>
+                            <x:Array Type="{x:Type sys:String}">
+                                <sys:String>One Title</sys:String>
+                                <sys:String>Another Title</sys:String>
+                                <sys:String>Great Title</sys:String>
+                            </x:Array>
+                        </controls:TyperLabel.Titles>
+                    </controls:TyperLabel>
+                    
+                    <Label Grid.Row="1" Grid.Column="1" Content="A nice subdescription" Style="{DynamicResource SubheaderStyle}" />
                 </Grid>
-            
             </Grid>
         </DockPanel>
     </Border>
