@@ -13,4 +13,8 @@
       <Resource Include="Resources\hamburger.png" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\GradientTheme\GradientTheme.csproj" />
+    </ItemGroup>
+
 </Project>
