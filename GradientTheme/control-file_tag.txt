@@ -2,4 +2,4 @@
 build_dotnet GradientTheme.csproj
 
 # Push to NuGet repo
-nuget_push .\bin\Release\*.nupkg
+nuget_push bin\Release\*.nupkg
