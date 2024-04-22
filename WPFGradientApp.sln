@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPFGradientApp", "WPFGradientApp\WPFGradientApp.csproj", "{DF3AD01C-5F0F-4B15-9A61-37584F624A0D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleApp", "ExampleApp\ExampleApp.csproj", "{DF3AD01C-5F0F-4B15-9A61-37584F624A0D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GradientTheme", "GradientTheme\GradientTheme.csproj", "{EA973924-B5DF-41FC-ADAF-41A119E6DF21}"
 EndProject
