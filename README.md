@@ -1,5 +1,17 @@
-# WPFGradientApp
-A basic example of a WPF app with gradient visuals. Used by me as a template for future projects
+# GradientThemeWPF
+A WPF theme library with modern and smooth-looking gradient colors. A base foundation for a modern-looking UI!
+
+## Installation
+[Use NuGet](https://www.nuget.org/packages/GradientThemeWPF) to acquire the library to your project:
+
+#### .Net CLI:
+```cmd
+dotnet add package GradientThemeWPF
+```
+#### Package Manager
+```powershell
+NuGet\Install-Package GradientThemeWPF
+```
 
 ## Usage
 To use the styles in your own project, make sure to import the correct styles in your `App.xaml`:
@@ -7,10 +19,10 @@ To use the styles in your own project, make sure to import the correct styles in
 <Application.Resources>
     <ResourceDictionary>
         <ResourceDictionary.MergedDictionaries>
-            <ResourceDictionary Source="Styles/Colors.xaml" />
-            <ResourceDictionary Source="Styles/Controls.xaml" />
-            <ResourceDictionary Source="Styles/Window.xaml" />
-            <ResourceDictionary Source="Styles/ControlColors.xaml" />
+            <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/Colors.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/Controls.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/Window.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/GradientTheme;component/Theme/ControlColors.xaml" />
         </ResourceDictionary.MergedDictionaries>
     </ResourceDictionary>
 </Application.Resources>
