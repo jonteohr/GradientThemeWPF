@@ -1,5 +1,7 @@
 .idea/
-WPFGradientApp/bin/
+ExampleApp/bin/
 GradientTheme/bin/
-WPFGradientApp/obj/
+ExampleApp/obj/
 GradientTheme/obj/
+GradientTheme/*.nuspec
+GradientTheme/*.nupkg
