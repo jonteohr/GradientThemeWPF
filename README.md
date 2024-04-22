@@ -1,4 +1,4 @@
-# GradientThemeWPF
+# GradientThemeWPF [![Build Status](https://jenkins.jonteohr.xyz/job/GRADIENTTHEMEWPF_TRUNK/badge/icon)](https://jenkins.jonteohr.xyz/job/GRADIENTTHEMEWPF_TRUNK)
 A WPF theme library with modern and smooth-looking gradient colors. A base foundation for a modern-looking UI!
 
 ## Installation
