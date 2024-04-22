@@ -14,8 +14,9 @@ NuGet\Install-Package GradientThemeWPF
 ```
 
 ## Usage
+### Styles
 To use the styles in your own project, make sure to import the correct styles in your `App.xaml`:
-```Xaml
+```xaml
 <Application.Resources>
     <ResourceDictionary>
         <ResourceDictionary.MergedDictionaries>
@@ -29,4 +30,23 @@ To use the styles in your own project, make sure to import the correct styles in
 ```
 Later in the window you want to be gradient colored, add the style `GradientWindow` to the window.
 
-Example of styles for each control is available in the source code.
+Example of styles for each control is available in the [example project](ExampleApp).
+
+### Controls
+In order to use the custom controls you need to import the "namespace" in the window header, which is quite simple:
+```xaml
+xmlns:controls="clr-namespace:GradientTheme.Controls;assembly=GradientTheme"
+```
+Later on the controls can be instantiated by prefixing `<controls:`, for example:
+```xaml
+<controls:TyperLabel Style="{DynamicResource TitleStyle}" >
+    <!-- Important that we supply at least one title, if not we will crash! -->
+    <controls:TyperLabel.Titles>
+        <x:Array Type="{x:Type sys:String}">
+            <sys:String>One Title</sys:String>
+            <sys:String>Another Title</sys:String>
+            <sys:String>Great Title</sys:String>
+        </x:Array>
+    </controls:TyperLabel.Titles>
+</controls:TyperLabel>
+```
