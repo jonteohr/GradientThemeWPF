@@ -1,0 +1,2 @@
+# Build the library
+build_dotnet GradientTheme.csproj

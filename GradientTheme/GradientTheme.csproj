@@ -5,7 +5,7 @@
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Version>0.0.1-alpha-01</Version>
+        <Version>0.0.1-alpha-02</Version>
         <AssemblyVersion>0.0.1</AssemblyVersion>
         <FileVersion>0.0.1</FileVersion>
         <PackageId>GradientThemeWPF</PackageId>
@@ -13,7 +13,7 @@
         <Authors>Jonteohr</Authors>
         <Copyright>2024 © Jonathan Öhrström</Copyright>
         <PackageProjectUrl>https://github.com/jonteohr/WPFGradientApp</PackageProjectUrl>
-        <PackageLicenseUrl>https://licenses.nuget.org/GPL-3.0-only</PackageLicenseUrl>
+        <PackageLicenseExpression>GPL-3.0-only</PackageLicenseExpression>
         <PackageTags>wpf gradient theme library modern ui</PackageTags>
         <RepositoryUrl>https://api.nuget.org/v3/index.json</RepositoryUrl>
         <IsPackable>true</IsPackable>
