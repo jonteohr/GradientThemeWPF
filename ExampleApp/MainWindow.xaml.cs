@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Input;
 using Timer = System.Timers.Timer;
 
-namespace WPFGradientApp;
+namespace ExampleApp;
 
 /// <summary>
 /// Interaction logic for MainWindow.xaml

@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media.Imaging;
 
-namespace WPFGradientApp.Components;
+namespace ExampleApp.Components;
 
 public enum Icons
 {
