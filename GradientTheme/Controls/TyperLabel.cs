@@ -10,10 +10,10 @@ public class TyperLabel : Label
     private const int TypeSpeed = 150;
     private const int TimerSpeed = 3;
     private bool m_typing;
-    private string m_windowTitle;
-    private string m_lastTitle;
+    private string m_windowTitle = string.Empty;
+    private string m_lastTitle = string.Empty;
     
-    private string[] m_titles;
+    private string[] m_titles = {  };
     public string[] Titles
     {
         get => m_titles;
