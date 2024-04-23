@@ -1,97 +1,100 @@
-﻿using System.Timers;
+﻿using System;
+using System.Threading;
+using System.Timers;
 using Timer = System.Timers.Timer;
 using System.Windows.Controls;
 using System.Windows.Data;
 
-namespace GradientTheme.Controls;
-
-public class TyperLabel : Label
+namespace GradientTheme.Controls
 {
-    private const int TypeSpeed = 150;
-    private const int TimerSpeed = 3;
-    private bool m_typing;
-    private string m_windowTitle = string.Empty;
-    private string m_lastTitle = string.Empty;
-    
-    private string[] m_titles = {  };
-    public string[] Titles
+    public class TyperLabel : Label
     {
-        get => m_titles;
-        set
-        {
-            m_titles = value;
-            Content = m_windowTitle = GetRandomTitle();
-        }
-    }
-    
-    public TyperLabel()
-    {
-        var binding = new Binding("m_windowTitle");
-        BindingOperations.SetBinding(this, TyperLabel.ContentProperty, binding);
+        private const int TypeSpeed = 150;
+        private const int TimerSpeed = 3;
+        private bool m_typing;
+        private string m_windowTitle = string.Empty;
+        private string m_lastTitle = string.Empty;
         
-        var timer = new Timer();
-        timer.Interval = TimerSpeed * 1000;
-        timer.AutoReset = true;
-        timer.Elapsed += TimerOnElapsed;
-        timer.Enabled = true;
-        timer.Start();
-    }
-    
-    private void TimerOnElapsed(object? sender, ElapsedEventArgs e)
-    {
-        while (!m_typing)
+        private string[] m_titles = {  };
+        public string[] Titles
         {
-            m_typing = true;
-
-            m_lastTitle = m_windowTitle;
+            get => m_titles;
+            set
+            {
+                m_titles = value;
+                Content = m_windowTitle = GetRandomTitle();
+            }
+        }
+        
+        public TyperLabel()
+        {
+            var binding = new Binding("m_windowTitle");
+            BindingOperations.SetBinding(this, TyperLabel.ContentProperty, binding);
             
-            for (var i = m_windowTitle.Length - 1; i < m_windowTitle.Length; i--)
-            {
-                if (i < 0)
-                    break;
-        
-                m_windowTitle = m_windowTitle.Remove(i);
-                SafeThreadInvoker(() => Content = m_windowTitle);
-                Thread.Sleep(TypeSpeed);
-            }
-
-            m_windowTitle = GetRandomTitle();
-
-            for (var i = 0; i <= m_windowTitle.Length; i++)
-            {
-                var tmp = m_windowTitle.Substring(0, i);
-                SafeThreadInvoker(() => Content = tmp);
-                Thread.Sleep(TypeSpeed);
-            }
-
-            break;
+            var timer = new Timer();
+            timer.Interval = TimerSpeed * 1000;
+            timer.AutoReset = true;
+            timer.Elapsed += TimerOnElapsed;
+            timer.Enabled = true;
+            timer.Start();
         }
         
-        m_typing = false;
-    }
-    
-    private void SafeThreadInvoker(Action a)
-    {
-        if (!CheckAccess())
-            Dispatcher.Invoke(a);
-        else
-            a();
-    }
-    
-    private string GetRandomTitle()
-    {
-        var rand = new Random();
-
-        var generated = Titles[rand.Next(0, Titles.Length)];
-        if(Titles.Length == 1)
-            return generated;
-        
-        do
+        private void TimerOnElapsed(object sender, ElapsedEventArgs e)
         {
-            generated = Titles[rand.Next(0, Titles.Length)];
-        }
-        while (generated == m_lastTitle);
+            while (!m_typing)
+            {
+                m_typing = true;
 
-        return generated;
+                m_lastTitle = m_windowTitle;
+                
+                for (var i = m_windowTitle.Length - 1; i < m_windowTitle.Length; i--)
+                {
+                    if (i < 0)
+                        break;
+            
+                    m_windowTitle = m_windowTitle.Remove(i);
+                    SafeThreadInvoker(() => Content = m_windowTitle);
+                    Thread.Sleep(TypeSpeed);
+                }
+
+                m_windowTitle = GetRandomTitle();
+
+                for (var i = 0; i <= m_windowTitle.Length; i++)
+                {
+                    var tmp = m_windowTitle.Substring(0, i);
+                    SafeThreadInvoker(() => Content = tmp);
+                    Thread.Sleep(TypeSpeed);
+                }
+
+                break;
+            }
+            
+            m_typing = false;
+        }
+        
+        private void SafeThreadInvoker(Action a)
+        {
+            if (!CheckAccess())
+                Dispatcher.Invoke(a);
+            else
+                a();
+        }
+        
+        private string GetRandomTitle()
+        {
+            var rand = new Random();
+
+            var generated = Titles[rand.Next(0, Titles.Length)];
+            if(Titles.Length == 1)
+                return generated;
+            
+            do
+            {
+                generated = Titles[rand.Next(0, Titles.Length)];
+            }
+            while (generated == m_lastTitle);
+
+            return generated;
+        }
     }
 }

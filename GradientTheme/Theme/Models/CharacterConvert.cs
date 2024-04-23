@@ -1,22 +1,24 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Globalization;
 using System.Windows.Data;
 
-namespace WPFGradientApp.Styles.Models;
-
-public class CharacterConvert : IValueConverter
+namespace GradientTheme.Theme.Models
 {
-    public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+    public class CharacterConvert : IValueConverter
     {
-        if (value is string str)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return str.ToUpper();
+            if (value is string str)
+            {
+                return str.ToUpper();
+            }
+
+            return value;
         }
 
-        return value;
-    }
-
-    public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-    {
-        throw new NotImplementedException();
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
