@@ -1,11 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net8.0-windows</TargetFramework>
         <Nullable>enable</Nullable>
         <UseWPF>true</UseWPF>
         <ImplicitUsings>enable</ImplicitUsings>
-        <Version>0.0.1-alpha-02</Version>
+        <Version>0.0.1-alpha-03</Version>
         <AssemblyVersion>0.0.1</AssemblyVersion>
         <FileVersion>0.0.1</FileVersion>
         <PackageId>GradientThemeWPF</PackageId>
@@ -19,6 +18,7 @@
         <IsPackable>true</IsPackable>
         <PackageReadmeFile>README.md</PackageReadmeFile>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <TargetFrameworks>net8.0-windows;net6.0-windows;net7.0-windows</TargetFrameworks>
     </PropertyGroup>
 
     <ItemGroup>
